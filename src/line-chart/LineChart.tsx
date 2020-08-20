@@ -230,6 +230,10 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
     return (dataset.color || this.props.chartConfig.color)(opacity);
   };
 
+  getStrokeColor = function (dataset: Dataset) {
+    return dataset.strokeColor || this.props.chartConfig.strokeColor || this.getColor(dataset, 0.2);
+  };
+
   getStrokeWidth = (dataset: Dataset) => {
     return dataset.strokeWidth || this.props.chartConfig.strokeWidth || 3;
   };
@@ -637,7 +641,7 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
           strokeLinejoin={linejoinType}
           points={points.join(" ")}
           fill="none"
-          stroke={this.getColor(dataset, 0.2)}
+          stroke={this.getStrokeColor(dataset)}
           strokeWidth={this.getStrokeWidth(dataset)}
         />
       );

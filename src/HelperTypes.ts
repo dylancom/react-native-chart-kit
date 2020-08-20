@@ -8,6 +8,9 @@ export interface Dataset {
   /** A function returning the color of the stroke given an input opacity value. */
   color?: (opacity: number) => string;
 
+  /** The color of the stroke. */
+  strokeColor?: string;
+
   /** The width of the stroke. Defaults to 2. */
   strokeWidth?: number;
 
